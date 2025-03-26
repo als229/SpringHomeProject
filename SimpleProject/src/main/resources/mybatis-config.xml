@@ -9,10 +9,12 @@
 	</settings>
 	
 	<typeAliases>
+		<typeAlias type="com.kh.spring.member.model.dto.MemberDTO" alias="memberDTO"/>
 	</typeAliases>
 	
 	
 	<mappers>
+		<mapper resource="/mapper/member-mapper.xml"/>
 	</mappers>
 
 

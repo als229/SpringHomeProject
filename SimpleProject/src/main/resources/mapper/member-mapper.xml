@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.kh.spring.member.model.dao.MemberDAO">
+	
+	<select id="checkMemberId"
+			parameterType="string"
+			resultType="_int"
+	>
+		SELECT
+			COUNT(MEMBER_ID)
+		FROM
+			KKM_MEMBER
+		WHERE 
+			MEMBER_ID = #{memberId}
+	</select>
+	
+	
+	<select id="loginMember"
+			parameterType="memberDTO"
+			resultType="memberDTO"
+	>
+		SELECT 
+			  	  MEMBER_NO memberNo
+				, MEMBER_ID memberId
+				, MEMBER_PW memberPw
+				, EMAIL email
+				, PHONE phone
+				, TO_CHAR(ENROLL_DATE, 'YYYY-MM-DD') enrollDate
+		FROM
+				KKM_MEMBER
+		WHERE 
+				MEMBER_ID = #{memberId}
+			AND	
+				MEMBER_PW = #{memberPw}
+	
+	</select>
+
+
+</mapper>
